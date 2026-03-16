@@ -19,13 +19,13 @@ export interface TextSegment {
 export interface TranscriptItem {
     id: number;
     time: number;
-    speaker_id: string;
+    speaker_id?: string;
     textSegments: TextSegment[];
 }
 
 export interface TranscriptData {
-    date: string | null;
-    practice_type: string | null;
+    date?: string | null;
+    practice_type?: string | null;
     transcripts: TranscriptItem[];
     notes: string[];
 }
