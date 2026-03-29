@@ -12,9 +12,7 @@
                 },
                 {
                     "surface": "は",
-                    "accent": [
-                        { "furigana": "は", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "は", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -29,9 +27,7 @@
                 },
                 {
                     "surface": "の",
-                    "accent": [
-                        { "furigana": "の", "accent_marking_type": 1, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "の", "accent_marking_type": 1, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -46,9 +42,7 @@
                 },
                 {
                     "surface": "を",
-                    "accent": [
-                        { "furigana": "を", "accent_marking_type": 1, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "を", "accent_marking_type": 1, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -62,30 +56,22 @@
                 },
                 {
                     "surface": "て",
-                    "accent": [
-                        { "furigana": "て", "accent_marking_type": 1, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "て", "accent_marking_type": 1, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "、",
-                    "accent": [
-                        { "furigana": "、", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "、", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "ループ",
-                    "accent": [
-                        { "furigana": "ループ", "accent_marking_type": 0, "length": 3 }
-                    ],
+                    "accent": [{ "furigana": "ループ", "accent_marking_type": 0, "length": 3 }],
                     "mistake_ids": [1]
                 },
                 {
                     "surface": "と",
-                    "accent": [
-                        { "furigana": "と", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "と", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -117,9 +103,7 @@
                 },
                 {
                     "surface": "に",
-                    "accent": [
-                        { "furigana": "に", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "に", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -132,9 +116,7 @@
                 },
                 {
                     "surface": "て",
-                    "accent": [
-                        { "furigana": "て", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "て", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -149,9 +131,7 @@
                 },
                 {
                     "surface": "し",
-                    "accent": [
-                        { "furigana": "し", "accent_marking_type": 1, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "し", "accent_marking_type": 1, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -164,9 +144,7 @@
                 },
                 {
                     "surface": "と",
-                    "accent": [
-                        { "furigana": "と", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "と", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -188,9 +166,7 @@
                 },
                 {
                     "surface": "。",
-                    "accent": [
-                        { "furigana": "。", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "。", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 }
             ],
@@ -223,30 +199,22 @@
                 },
                 {
                     "surface": "し",
-                    "accent": [
-                        { "furigana": "し", "accent_marking_type": 1, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "し", "accent_marking_type": 1, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "た",
-                    "accent": [
-                        { "furigana": "た", "accent_marking_type": 2, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "た", "accent_marking_type": 2, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "の",
-                    "accent": [
-                        { "furigana": "の", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "の", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "は",
-                    "accent": [
-                        { "furigana": "は", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "は", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -259,16 +227,12 @@
                 },
                 {
                     "surface": "ゲーム",
-                    "accent": [
-                        { "furigana": "ゲーム", "accent_marking_type": 0, "length": 3 }
-                    ],
+                    "accent": [{ "furigana": "ゲーム", "accent_marking_type": 0, "length": 3 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "の",
-                    "accent": [
-                        { "furigana": "の", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "の", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -283,9 +247,7 @@
                 },
                 {
                     "surface": "の",
-                    "accent": [
-                        { "furigana": "の", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "の", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -309,16 +271,12 @@
                 },
                 {
                     "surface": "が",
-                    "accent": [
-                        { "furigana": "が", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "が", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "、",
-                    "accent": [
-                        { "furigana": "、", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "、", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 }
             ],
@@ -331,16 +289,12 @@
             "subwords": [
                 {
                     "surface": "ループ",
-                    "accent": [
-                        { "furigana": "ループ", "accent_marking_type": 0, "length": 3 }
-                    ],
+                    "accent": [{ "furigana": "ループ", "accent_marking_type": 0, "length": 3 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "は",
-                    "accent": [
-                        { "furigana": "は", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "は", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -355,9 +309,7 @@
                 },
                 {
                     "surface": "に",
-                    "accent": [
-                        { "furigana": "に", "accent_marking_type": 1, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "に", "accent_marking_type": 1, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -378,16 +330,12 @@
                 },
                 {
                     "surface": "て",
-                    "accent": [
-                        { "furigana": "て", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "て", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "、",
-                    "accent": [
-                        { "furigana": "、", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "、", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -402,9 +350,7 @@
                 },
                 {
                     "surface": "の",
-                    "accent": [
-                        { "furigana": "の", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "の", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -420,9 +366,7 @@
                 },
                 {
                     "surface": "を",
-                    "accent": [
-                        { "furigana": "を", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "を", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
@@ -436,23 +380,17 @@
                 },
                 {
                     "surface": "と",
-                    "accent": [
-                        { "furigana": "と", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "と", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 },
                 {
                     "surface": "2000",
-                    "accent": [
-                        { "furigana": "2000", "accent_marking_type": 0, "length": 4 }
-                    ],
+                    "accent": [{ "furigana": "2000", "accent_marking_type": 0, "length": 4 }],
                     "mistake_ids": [5]
                 },
                 {
                     "surface": "位",
-                    "accent": [
-                        { "furigana": "い", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "い", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": [5]
                 },
                 {
@@ -466,9 +404,7 @@
                 },
                 {
                     "surface": "に",
-                    "accent": [
-                        { "furigana": "に", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "に", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": [5]
                 },
                 {
@@ -497,16 +433,12 @@
                 },
                 {
                     "surface": "ん",
-                    "accent": [
-                        { "furigana": "ん", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "ん", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": [5]
                 },
                 {
                     "surface": "。",
-                    "accent": [
-                        { "furigana": "。", "accent_marking_type": 0, "length": 1 }
-                    ],
+                    "accent": [{ "furigana": "。", "accent_marking_type": 0, "length": 1 }],
                     "mistake_ids": []
                 }
             ],

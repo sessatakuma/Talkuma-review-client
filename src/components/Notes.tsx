@@ -2,15 +2,15 @@ import React, { useEffect, useRef } from 'react';
 
 import { X } from 'lucide-react';
 
-import type { Feedback, FeedbackType, TranscriptItem } from 'src/types/transcript';
+import type { Mistake, MistakeType, TranscriptItem } from 'src/types/transcript';
 
 import 'components/Notes.css';
 
 interface NotesProps {
     note: string;
     onNoteChange: (note: string) => void;
-    feedback: Feedback | null;
-    setFeedback: React.Dispatch<React.SetStateAction<Feedback | null>>;
+    mistake: Mistake | null;
+    setMistake: React.Dispatch<React.SetStateAction<Mistake | null>>;
     selectedCaptionIndex: number;
     selectedCaption: TranscriptItem | null;
 }
@@ -18,12 +18,12 @@ interface NotesProps {
 export default function Notes({
     note,
     onNoteChange,
-    feedback,
-    setFeedback,
+    mistake,
+    setMistake,
     selectedCaptionIndex,
     selectedCaption,
 }: NotesProps) {
-    const typeMap: Record<FeedbackType, string> = {
+    const typeMap: Record<MistakeType, string> = {
         vocab: '単語',
         grammar: '文法',
         voice: '発音',
@@ -48,40 +48,42 @@ export default function Notes({
                     {selectedCaption && (
                         <div className='selected-caption'>
                             <p className='text'>
-                                {selectedCaption.textSegments.map((textSegment, j) => (
-                                    <span
-                                        className={
-                                            textSegment.highlight && textSegment.feedback
-                                                ? 'highlight ' + textSegment.feedback.type
-                                                : ''
-                                        }
-                                        key={j}
-                                        onClick={(e) => {
-                                            if (!textSegment.highlight) {
-                                                return;
+                                {selectedCaption.textSegments.map((textSegment, j) => {
+                                    const hasMistake =
+                                        textSegment.highlight && textSegment.mistakes?.length > 0;
+                                    const targetMistake = hasMistake
+                                        ? textSegment.mistakes[0]
+                                        : null;
+
+                                    return (
+                                        <span
+                                            key={j}
+                                            className={
+                                                hasMistake ? 'highlight ' + targetMistake!.type : ''
                                             }
-                                            e.stopPropagation();
-                                            setFeedback(textSegment.feedback);
-                                        }}
-                                    >
-                                        {textSegment.text}
-                                    </span>
-                                ))}
+                                            onClick={(e) => {
+                                                if (!hasMistake) return;
+                                                e.stopPropagation();
+                                                setMistake(targetMistake);
+                                            }}
+                                        >
+                                            {textSegment.text}
+                                        </span>
+                                    );
+                                })}
                             </p>
                         </div>
                     )}
-                    {feedback && (
-                        <div className={'feedback ' + feedback.type}>
+
+                    {mistake && (
+                        <div className={'feedback ' + mistake.type}>
                             <div className='feedback-header'>
-                                <h4>{typeMap[feedback.type] + 'の問題'}</h4>
-                                <button
-                                    className='close-feedback'
-                                    onClick={() => setFeedback(null)}
-                                >
+                                <h4>{typeMap[mistake.type] + 'の問題'}</h4>
+                                <button className='close-feedback' onClick={() => setMistake(null)}>
                                     <X size={20} />
                                 </button>
                             </div>
-                            <p>{feedback.comment}</p>
+                            <p className='comment'>{mistake.comment}</p>
                         </div>
                     )}
                     <textarea

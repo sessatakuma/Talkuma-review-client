@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Hint from 'components/Hint';
 import Notes from 'components/Notes';
 
-import type { Feedback, TranscriptItem } from 'src/types/transcript';
+import type { Mistake, TranscriptItem } from 'src/types/transcript';
 
 import 'components/RightPanel.css';
 
@@ -11,8 +11,8 @@ interface RightPanelProps {
     notes: string[];
     selectedCaptionIndex: number;
     onNoteChange: (newNote: string) => void;
-    feedback: Feedback | null;
-    setFeedback: React.Dispatch<React.SetStateAction<Feedback | null>>;
+    mistake: Mistake | null;
+    setMistake: React.Dispatch<React.SetStateAction<Mistake | null>>;
     transcripts: TranscriptItem[];
 }
 
@@ -20,8 +20,8 @@ export default function RightPanel({
     notes,
     selectedCaptionIndex,
     onNoteChange,
-    feedback,
-    setFeedback,
+    mistake,
+    setMistake,
     transcripts,
 }: RightPanelProps) {
     const [rightPanel, setRightPanel] = useState('notes');
@@ -37,8 +37,8 @@ export default function RightPanel({
             <Notes
                 note={selectedCaptionIndex !== -1 ? notes[selectedCaptionIndex] : ''}
                 onNoteChange={onNoteChange}
-                feedback={feedback}
-                setFeedback={setFeedback}
+                mistake={mistake}
+                setMistake={setMistake}
                 selectedCaptionIndex={selectedCaptionIndex}
                 selectedCaption={
                     selectedCaptionIndex !== -1 ? transcripts[selectedCaptionIndex] : null

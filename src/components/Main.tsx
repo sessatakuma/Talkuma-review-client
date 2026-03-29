@@ -5,7 +5,7 @@ import Nav from 'components/Nav';
 import RightPanel from 'components/RightPanel';
 import useTranscript from 'hook/useTranscript';
 
-import type { Feedback } from 'src/types/transcript';
+import type { Mistake } from 'src/types/transcript';
 
 import 'components/Main.css';
 
@@ -18,7 +18,7 @@ export default function Main() {
     const { transcripts, notes, updateNote, selectedCaptionIndex, setSelectedCaptionIndex } =
         useTranscript(currentTime);
 
-    const [feedback, setFeedback] = useState<Feedback | null>(null);
+    const [mistake, setMistake] = useState<Mistake | null>(null);
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -38,7 +38,7 @@ export default function Main() {
         const targetElement = e.target as HTMLElement;
         if (targetElement.tagName === 'MAIN' || e.currentTarget === e.target) {
             setSelectedCaptionIndex(-1);
-            setFeedback(null);
+            setMistake(null);
         }
     };
 
@@ -50,7 +50,7 @@ export default function Main() {
                     transcripts={transcripts}
                     selectedCaptionIndex={selectedCaptionIndex}
                     setSelectedCaptionIndex={setSelectedCaptionIndex}
-                    setFeedback={setFeedback}
+                    setMistake={setMistake}
                     currentTime={currentTime}
                     setCurrentTime={setCurrentTime}
                     isReviewMode={isReviewMode}
@@ -59,8 +59,8 @@ export default function Main() {
                     notes={notes}
                     selectedCaptionIndex={selectedCaptionIndex}
                     onNoteChange={handleNoteChange}
-                    feedback={feedback}
-                    setFeedback={setFeedback}
+                    mistake={mistake}
+                    setMistake={setMistake}
                     transcripts={transcripts}
                 />
             </main>
