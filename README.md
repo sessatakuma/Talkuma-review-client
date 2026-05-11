@@ -1,41 +1,17 @@
-# jpcorrect-frontend
+# Talkuma review client
 
-This repository contains the front-end for the jpcorrect system, a Japanese language correction platform.
+Frontend client for the Talkuma review page, where users can review their Japanese speaking practice recordings with detailed system feedback.
 
-Tech stack: React + TypeScript + Vite + Bun.
-
-## Getting Started
-
-### Prerequisites
-
-- Bun (v1.2+ recommended)
-
-### Installation
-
+## Quick Start
+Set up:
 ```bash
-git clone https://github.com/sessatakuma/jpcorrect-frontend.git
-cd jpcorrect-frontend
 bun i
 ```
-
-### Run
-
+Start dev server:
 ```bash
 bun dev
 ```
-
-### Build
-
+Build:
 ```bash
 bun run build
-```
-
-## Deployment
-
-On every push to `main`, GitHub Actions automatically builds the app and publishes the `dist` output to the `gh-pages` branch using `.github/workflows/deploy-gh-pages.yml`.
-
-### Type Check
-
-```bash
-bun run typecheck
 ```
