@@ -2,7 +2,13 @@ import { useState, useEffect, useMemo } from 'react';
 
 import data from 'data/transcript.json';
 
-import type { TranscriptData, TranscriptItem, TextSegment } from 'src/types/transcript';
+import type {
+    TranscriptData,
+    TranscriptItem,
+    TextSegment,
+    Mistake,
+    Subword,
+} from 'src/types/transcript';
 
 interface RawTranscript {
     transcript: string;
@@ -17,22 +23,7 @@ interface RawTranscriptData {
     mistakes: Mistake[];
 }
 
-interface Subword {
-    surface: string;
-    accent: Array<{ furigana: string; accent_marking_type: number }>;
-    mistake_ids: number[];
-}
-
-interface Mistake {
-    mistake_id: number;
-    type: string;
-    origin_text: string;
-    fixed_text: string;
-    comment: string;
-}
-
 function processTranscriptData(rawData: RawTranscriptData): TranscriptData {
-    // 1. 補齊空資料時的回傳結構，避免 TS 報錯
     if (!rawData) {
         return {
             date: null,
