@@ -7,7 +7,7 @@ import 'components/Display.css';
 
 import Transcript from './Transcript';
 
-import type { Feedback, TranscriptItem } from 'src/types/transcript';
+import type { Mistake, TranscriptItem } from 'src/types/transcript';
 
 interface PlayerApi {
     getCurrentTime: () => number;
@@ -22,7 +22,7 @@ interface DisplayProps {
     transcripts: TranscriptItem[];
     selectedCaptionIndex: number;
     setSelectedCaptionIndex: React.Dispatch<React.SetStateAction<number>>;
-    setFeedback: React.Dispatch<React.SetStateAction<Feedback | null>>;
+    setMistake: React.Dispatch<React.SetStateAction<Mistake | null>>;
     currentTime: number;
     setCurrentTime: React.Dispatch<React.SetStateAction<number>>;
     isReviewMode: boolean;
@@ -32,7 +32,7 @@ export default function Display({
     transcripts,
     selectedCaptionIndex,
     setSelectedCaptionIndex,
-    setFeedback,
+    setMistake,
     currentTime,
     setCurrentTime,
     isReviewMode,
@@ -191,7 +191,7 @@ export default function Display({
                 transcripts={transcripts}
                 selectedCaptionIndex={selectedCaptionIndex}
                 setSelectedCaptionIndex={setSelectedCaptionIndex}
-                setFeedback={setFeedback}
+                setMistake={setMistake}
                 isReviewMode={isReviewMode}
             />
         </section>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-import type { Feedback, TranscriptItem } from 'src/types/transcript';
+import type { Mistake, TranscriptItem } from 'src/types/transcript';
 
 import './Transcript.css';
 
@@ -23,7 +23,7 @@ interface TranscriptProps {
     transcripts: TranscriptItem[];
     selectedCaptionIndex: number;
     setSelectedCaptionIndex: React.Dispatch<React.SetStateAction<number>>;
-    setFeedback: React.Dispatch<React.SetStateAction<Feedback | null>>;
+    setMistake: React.Dispatch<React.SetStateAction<Mistake | null>>;
     isReviewMode: boolean;
 }
 
@@ -33,7 +33,7 @@ export default function Transcript({
     transcripts,
     selectedCaptionIndex,
     setSelectedCaptionIndex,
-    setFeedback,
+    setMistake,
     isReviewMode,
 }: TranscriptProps) {
     const [currentCaption, setCurrentCaption] = useState(0);
@@ -84,7 +84,7 @@ export default function Transcript({
 
     const lockAll = () => {
         setSelectedCaptionIndex(-1);
-        setFeedback(null);
+        setMistake(null);
     };
 
     const handleCaptionClick = (index: number) => {
@@ -116,18 +116,39 @@ export default function Transcript({
                                     alt={caption.speaker_id || 'unknowspeaker'}
                                 />
                                 <p className='text'>
-                                    {caption.textSegments.map((textSegment, j) => (
-                                        <span
-                                            className={
-                                                isReviewMode && textSegment.highlight && textSegment.feedback
-                                                    ? 'highlight ' + textSegment.feedback.type
-                                                    : ''
-                                            }
-                                            key={j}
-                                        >
-                                            {textSegment.text}
-                                        </span>
-                                    ))}
+                                    {caption.textSegments.map((textSegment, j) => {
+                                        const hasMistake =
+                                            textSegment.highlight &&
+                                            textSegment.mistakes?.length > 0;
+                                        const targetMistake = hasMistake
+                                            ? textSegment.mistakes[0]
+                                            : null;
+
+                                        return (
+                                            <span
+                                                key={j}
+                                                className={
+                                                    isReviewMode && hasMistake
+                                                        ? 'highlight ' + targetMistake!.type
+                                                        : ''
+                                                }
+                                                onClick={(e) => {
+                                                    if (isReviewMode && hasMistake) {
+                                                        e.stopPropagation();
+                                                        setMistake(targetMistake);
+                                                    }
+                                                }}
+                                                style={{
+                                                    cursor:
+                                                        isReviewMode && hasMistake
+                                                            ? 'pointer'
+                                                            : 'default',
+                                                }}
+                                            >
+                                                {textSegment.text}
+                                            </span>
+                                        );
+                                    })}
                                 </p>
                             </div>
                         </div>

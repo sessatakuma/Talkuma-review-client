@@ -2,26 +2,25 @@ import { useState, useEffect, useMemo } from 'react';
 
 import data from 'data/transcript.json';
 
-import type { Feedback, TranscriptData, TranscriptItem, TextSegment } from 'src/types/transcript';
+import type {
+    TranscriptData,
+    TranscriptItem,
+    TextSegment,
+    Mistake,
+    Subword,
+} from 'src/types/transcript';
 
 interface RawTranscript {
-    start: number;
-    text: string;
-    speaker_id: string;
-    feedback_ids?: number[];
+    transcript: string;
+    start_time: number;
+    end_time: number;
+    subwords: Subword[];
+    note: string;
 }
 
 interface RawTranscriptData {
-    date: string;
-    practice_type: string;
     transcripts: RawTranscript[];
-    feedbacks: Feedback[];
-}
-
-interface HighlightMatch {
-    start: number;
-    end: number;
-    feedbackId: number;
+    mistakes: Mistake[];
 }
 
 function processTranscriptData(rawData: RawTranscriptData): TranscriptData {
@@ -34,80 +33,42 @@ function processTranscriptData(rawData: RawTranscriptData): TranscriptData {
         };
     }
 
-    const date = rawData.date.replace(/[^0-9]/g, '/') || null;
-    const practice_type = rawData.practice_type || null;
+    const mistakesMap = new Map(rawData.mistakes.map((m) => [m.mistake_id, m]));
+    const notes = rawData.transcripts.map((t) => t.note || '');
 
-    const notes = rawData.transcripts.map(() => '');
+    const transcripts: TranscriptItem[] = rawData.transcripts.map((t, index) => {
+        const textSegments = t.subwords.map((sw) => {
+            const mistakes = sw.mistake_ids
+                .map((id) => mistakesMap.get(id))
+                .filter((m): m is Mistake => m !== undefined);
 
-    const transcripts: TranscriptItem[] = rawData.transcripts.map((transcript, index) => {
-        const feedbacks = (transcript.feedback_ids || []).map((id) => rawData.feedbacks[id]);
-        const highlights: HighlightMatch[] = [];
-
-        feedbacks.forEach((fb) => {
-            if (fb && fb.highlight_part) {
-                const part = fb.highlight_part;
-                let fromIndex = 0;
-                let idx = transcript.text.indexOf(part, fromIndex);
-                while (idx !== -1) {
-                    const overlap = highlights.some(
-                        (h) => idx < h.end && idx + part.length > h.start,
-                    );
-                    if (!overlap) {
-                        highlights.push({
-                            start: idx,
-                            end: idx + part.length,
-                            feedbackId: fb.id,
-                        });
-                        break;
-                    }
-                    fromIndex = idx + 1;
-                    idx = transcript.text.indexOf(part, fromIndex);
-                }
-            }
+            return {
+                text: sw.surface,
+                highlight: mistakes.length > 0,
+                mistakes: mistakes,
+                subword: sw,
+            } as unknown as TextSegment;
         });
-
-        highlights.sort((a, b) => a.start - b.start);
-
-        const segments: TextSegment[] = [];
-        let lastIdx = 0;
-        for (let i = 0; i < highlights.length; ++i) {
-            const h = highlights[i];
-            if (lastIdx < h.start) {
-                segments.push({
-                    text: transcript.text.slice(lastIdx, h.start),
-                    highlight: false,
-                    feedback: null,
-                });
-            }
-            const matchingFeedback = feedbacks.find((fb) => fb?.id === h.feedbackId);
-            segments.push({
-                text: transcript.text.slice(h.start, h.end),
-                highlight: true,
-                feedback: matchingFeedback ?? null,
-            });
-            lastIdx = h.end;
-        }
-        if (lastIdx < transcript.text.length) {
-            segments.push({
-                text: transcript.text.slice(lastIdx),
-                highlight: false,
-                feedback: null,
-            });
-        }
 
         return {
             id: index,
-            time: transcript.start,
-            textSegments: segments,
-            speaker_id: transcript.speaker_id,
+            time: t.start_time,
+            text: t.transcript,
+            textSegments,
+            speaker_id: 'unknown',
         };
     });
 
-    return { date, practice_type, transcripts, notes };
+    return {
+        date: null,
+        practice_type: null,
+        transcripts,
+        notes,
+    };
 }
 
 export default function useTranscript(currentTime: number) {
-    const initialData = useMemo(() => processTranscriptData(data as RawTranscriptData), []);
+    const initialData = useMemo(() => processTranscriptData(data as any), []);
 
     const [transcriptData, setTranscriptData] = useState(initialData);
     const [selectedCaptionIndex, setSelectedCaptionIndex] = useState(-1);
