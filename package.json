@@ -21,8 +21,6 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@types/react-transition-group": "^4.2.4",
-        "axios": "^1.13.2",
         "bootstrap": "^4.4.1",
         "eslint": "^9.39.1",
         "eslint-plugin-react": "^7.37.5",
@@ -30,15 +28,12 @@
         "lucide-react": "^0.555.0",
         "react": "^19.2.4",
         "react-dom": "^19.2.4",
-        "react-router-dom": "^5.1.2",
-        "react-youtube": "^10.1.0",
-        "reactstrap": "^8.4.1"
+        "react-youtube": "^10.1.0"
     },
     "devDependencies": {
         "@types/node": "^24.9.1",
         "@types/react": "^19.2.4",
         "@types/react-dom": "^19.2.3",
-        "@types/react-router-dom": "^5.3.3",
         "@vitejs/plugin-react": "^4.3.4",
         "baseline-browser-mapping": "^2.10.0",
         "eslint-plugin-import": "^2.32.0",
